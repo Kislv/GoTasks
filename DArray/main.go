@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 )
@@ -41,13 +42,21 @@ func (darray *DArray) Size() (int){
 	return darray.size
 }
 
+func (darray *DArray) GetAt(index int) (int, error){
+	if(index > darray.size - 1){
+		return 0, errors.New("Out of size!")
+	}
+	return darray.buffer[index], nil
+}
+
 func (darray *DArray) Print() {
-	fmt.Println("DArray size = :" + strconv.Itoa(darray.size))
-	fmt.Println("DArray capacity = :" + strconv.Itoa(darray.capacity))
+	fmt.Println("DArray size = " + strconv.Itoa(darray.Size()))
+	fmt.Println("DArray capacity = " + strconv.Itoa(darray.capacity))
 	fmt.Println("DArray elements:")
 	for i := 0; i < darray.size; i++ {
 		fmt.Println(darray.buffer[i])
 	}
+
 }
 
 func main () {
