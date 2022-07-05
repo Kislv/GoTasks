@@ -1,8 +1,4 @@
-package main 
-import (
-	"fmt"
-	"strconv"
-)
+package Power 
 
 func Power(digit, log int) (int){	
 	result := 1
@@ -16,9 +12,4 @@ func Power(digit, log int) (int){
 		digitInPower = digitInPower * digitInPower
 	}
 	return result
-}
-
-func main() {
-    fmt.Println("Hello World")
-    fmt.Println("Power = " + strconv.Itoa(Power(2, 11)))
 }
